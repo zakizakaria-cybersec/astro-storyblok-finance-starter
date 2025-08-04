@@ -6,20 +6,40 @@ const { blok } = Astro.props
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get(`cdn/stories`, {
   version: import.meta.env.DEV ? 'draft' : 'published',
-  starts_with: 'reports/',
+  starts_with: 'report/',
   is_startpage: false,
 })
 
 const reports = data.stories
 ---
 
-<section class="" {...storyblokEditable(blok)}>
-  <h1 class="text-white text-5xl text-center leading-[120%] font-adamina mb-16 px-6">Reports</h1>
-  <ul class="grid grid-cols-1 gap-6 md:grid-cols-3">
-    {reports && reports.map((report) => (
-      <li>
-        <ReportCard report={report.content} />
-      </li>
-    ))}
-  </ul>
+<section {...storyblokEditable(blok)} class="bg-black">
+
+  <div
+    class="min-h-[40vh] flex flex-col justify-center items-center bg-no-repeat bg-cover bg-center"
+    style={`background-image: ${blok.image.filename ? `url(${blok.image.filename})` : ''}`}
+    >
+    <div class="max-w-[624px] mx-auto flex flex-col justify-center items-center">
+      <h1 class="text-white text-5xl leading-[120%] text-center font-adamina mb-4">
+        {blok.title}
+      </h1>
+
+      {blok.lead && (
+        <p class="mb-8 text-white opacity-65">
+          {blok.lead}
+        </p>
+      )}
+    </div>
+  </div>
+
+  <div class="container mx-auto py-32">
+    <ul class="grid gap-8 grid-cols-2 md:grid-cols-4">
+      {reports && reports.map((report) => (
+        <li class="">
+          <ReportCard report={report.content} />
+        </li>
+      ))}
+    </ul>
+  </div>
+
 </section>
