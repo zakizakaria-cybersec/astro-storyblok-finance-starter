@@ -1,0 +1,15 @@
+---
+const { title, icon, variant = 'default' } = Astro.props
+
+const variants = {
+  default: 'text-black',
+  glass: 'p-2 bg-black/10 backdrop-blur text-white',
+}
+---
+
+<h2 class={`inline-flex gap-4 items-center ${variants[variant]}`}>
+  <div class="bg-primary p-1 rounded-sm">
+    {icon && <img src={icon} alt="" class="w-[25px] h-[25px]" />}
+  </div>
+  <span>{title}</span>
+</h2>

@@ -1,0 +1,25 @@
+---
+import { storyblokEditable, useStoryblokApi } from '@storyblok/astro'
+import ReportCard from '../components/ReportCard.astro'
+
+const { blok } = Astro.props
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get(`cdn/stories`, {
+  version: import.meta.env.DEV ? 'draft' : 'published',
+  starts_with: 'reports/',
+  is_startpage: false,
+})
+
+const reports = data.stories
+---
+
+<section class="" {...storyblokEditable(blok)}>
+  <h1 class="text-white text-5xl text-center leading-[120%] font-adamina mb-16 px-6">Reports</h1>
+  <ul class="grid grid-cols-1 gap-6 md:grid-cols-3">
+    {reports && reports.map((report) => (
+      <li>
+        <ReportCard report={report.content} />
+      </li>
+    ))}
+  </ul>
+</section>

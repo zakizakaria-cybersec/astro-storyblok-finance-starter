@@ -1,0 +1,10 @@
+---
+import Button from '../components/Button.astro'
+const { blok } = Astro.props
+
+const href = blok.url?.cached_url || '#'
+const label = blok.label || 'Become a Member'
+const variant = blok.style || 'primary'
+---
+
+<Button label={label} href={href} variant={variant} />
