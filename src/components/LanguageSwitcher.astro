@@ -1,0 +1,31 @@
+---
+import { languages } from '../utils/langs'
+const { language } = Astro.props
+---
+
+<div class="relative inline-block">
+  <button id="dropdowntoggle" type="button" class="inline-flex items-center p-1.5 gap-0.5 rounded-sm select-none cursor-pointer" id="menu-button" aria-expanded="true" aria-haspopup="true">
+    {language}
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 10L8 6L12 10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div id="dropdown" class="hidden absolute left-0 right-0 w-[160] mt-2 rounded-sm bg-white" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+    <ul class="flex flex-col gap-1.5" role="none">
+      {languages
+        .filter((locale) => locale !== language)
+        .map((locale) => (
+          <li key={locale}>
+            <a
+              href=""
+              class="flex items-center gap-1 rounded-sm p-1 text-xs capitalize"
+              role="menuitem"
+              tabindex="-1"
+            >
+              {locale}
+            </a>
+          </li>
+        ))}
+    </ul>
+  </div>
+</div>
