@@ -10,7 +10,7 @@ const { language, report } = Astro.props
     alt={report.image.alt}
   />
   <h3 class="mt-6 text-white text-xl">
-    <a href={getTransLink(language, `/reports/${report.slug}`)}>
+    <a href={getTransLink(language, `/report/${report.slug}`)}>
       {report.title}
     </a>
   </h3>
