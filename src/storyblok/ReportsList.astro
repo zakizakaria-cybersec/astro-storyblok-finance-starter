@@ -2,12 +2,13 @@
 import { storyblokEditable, useStoryblokApi } from '@storyblok/astro'
 import ReportCard from '../components/ReportCard.astro'
 
-const { blok } = Astro.props
+const { blok, language } = Astro.props
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get(`cdn/stories`, {
   version: import.meta.env.DEV ? 'draft' : 'published',
   starts_with: 'report/',
   is_startpage: false,
+  language,
 })
 
 const reports = data.stories
@@ -35,8 +36,8 @@ const reports = data.stories
   <div class="container mx-auto py-32">
     <ul class="grid gap-8 grid-cols-1 md:grid-cols-3">
       {reports && reports.map((report) => (
-        <li class="">
-          <ReportCard report={report.content} />
+        <li>
+          <ReportCard language={language} report={report.content} />
         </li>
       ))}
     </ul>
