@@ -5,41 +5,48 @@ const { language, langSwitch } = Astro.props
 
 <div class="relative inline-block">
   <button id="dropdowntoggle" type="button" class="inline-flex items-center p-1.5 gap-0.5 rounded-sm select-none cursor-pointer" id="menu-button" aria-expanded="true" aria-haspopup="true">
-    {language}
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g clip-path="url(#a)"><rect width="16" height="16" fill="#fff" rx="8"/><g clip-path="url(#b)"><g clip-path="url(#c)"><rect width="22" height="16" x="-3" fill="#1A47B8" rx="2"/><path fill="#fff" fill-rule="evenodd" d="M-.66 0H-3v2.667L16.647 16H19v-2.667L-.66 0Z" clip-rule="evenodd"/><path fill="#F93939" d="M-2.22 0 19 14.438V16h-.762L-3 1.547V0h.78Z"/><path fill="#fff" fill-rule="evenodd" d="M16.905 0H19v2.667S5.391 11.55-.905 16H-3v-2.667L16.905 0Z" clip-rule="evenodd"/><path fill="#F93939" d="M19 0h-.71L-3 14.45V16h.78L19 1.559V0Z"/><path fill="#fff" fill-rule="evenodd" d="M5 0h6.018v4.935H19v6.127h-7.982V16H5v-4.938H-3V4.935h8V0Z" clip-rule="evenodd"/><path fill="#F93939" fill-rule="evenodd" d="M6.263 0h3.474v6.154H19v3.692H9.737V16H6.263V9.846H-3V6.154h9.263V0Z" clip-rule="evenodd"/></g></g></g><defs><clipPath id="a"><rect width="16" height="16" fill="#fff" rx="8"/></clipPath><clipPath id="b"><path fill="#fff" d="M-3 0h22v16H-3z"/></clipPath><clipPath id="c"><rect width="22" height="16" x="-3" fill="#fff" rx="2"/></clipPath></defs></svg>
+    <svg class="-scale-100" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M4 10L8 6L12 10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
-  <div id="dropdown" class="hidden absolute left-0 right-0 w-[160] mt-2 rounded-sm bg-white" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-    <ul class="flex flex-col gap-1.5" role="none">
-      {
-        languages.map((lang) => (
-          <a
-            class={`lang-toggle hover:bg-gray-200 px-2 ${
-              lang === language ? 'bg-gray-200' : ''
-            }`}
-            href={langSwitch[lang]}
-          >
-            {lang}
-          </a>
-        ))
-      }
-
-
+  <div id="dropdown" class="hidden absolute left-0 w-[160px] -translate-x-1/2 ml-[50%] mt-2 rounded-lg bg-white" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+    <ul class="flex flex-col p-2 gap-y-1.5" role="none">
       {languages
-        .filter((locale) => locale !== language)
         .map((locale) => (
           <li key={locale}>
             <a
-              href=""
+              href={langSwitch[locale]}
               class="flex items-center gap-1 rounded-sm p-1 text-xs capitalize"
               role="menuitem"
               tabindex="-1"
             >
-              {locale}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g clip-path="url(#a)"><rect width="16" height="16" fill="#fff" rx="8"/><g clip-path="url(#b)"><g clip-path="url(#c)"><rect width="22" height="16" x="-3" fill="#1A47B8" rx="2"/><path fill="#fff" fill-rule="evenodd" d="M-.66 0H-3v2.667L16.647 16H19v-2.667L-.66 0Z" clip-rule="evenodd"/><path fill="#F93939" d="M-2.22 0 19 14.438V16h-.762L-3 1.547V0h.78Z"/><path fill="#fff" fill-rule="evenodd" d="M16.905 0H19v2.667S5.391 11.55-.905 16H-3v-2.667L16.905 0Z" clip-rule="evenodd"/><path fill="#F93939" d="M19 0h-.71L-3 14.45V16h.78L19 1.559V0Z"/><path fill="#fff" fill-rule="evenodd" d="M5 0h6.018v4.935H19v6.127h-7.982V16H5v-4.938H-3V4.935h8V0Z" clip-rule="evenodd"/><path fill="#F93939" fill-rule="evenodd" d="M6.263 0h3.474v6.154H19v3.692H9.737V16H6.263V9.846H-3V6.154h9.263V0Z" clip-rule="evenodd"/></g></g></g><defs><clipPath id="a"><rect width="16" height="16" fill="#fff" rx="8"/></clipPath><clipPath id="b"><path fill="#fff" d="M-3 0h22v16H-3z"/></clipPath><clipPath id="c"><rect width="22" height="16" x="-3" fill="#fff" rx="2"/></clipPath></defs></svg>
+              English ({locale})
             </a>
           </li>
         ))}
     </ul>
   </div>
 </div>
+
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('dropdowntoggle');
+    const dropdown = document.getElementById('dropdown');
+
+    toggleBtn.addEventListener('click', () => {
+      dropdown.classList.toggle('hidden');
+      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', !expanded);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+        toggleBtn.setAttribute('aria-expanded', false);
+      }
+    });
+  });
+</script>

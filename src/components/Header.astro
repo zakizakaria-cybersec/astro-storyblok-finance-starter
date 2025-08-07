@@ -33,13 +33,13 @@ const { language, langSwitch } = Astro.props;
         </a>
     </ul>
 
-    <LanguageSwitcher langSwitch={langSwitch} language={language} />
+    <div class="flex items-center gap-4">
+      <LanguageSwitcher langSwitch={langSwitch} language={language} />
 
-    <!-- Button Button -->
-    <a class="button--glass hidden md:block text-white px-3 py-1.5 text-sm font-medium border-white/50 bg-black/20 backdrop-blur-sm">
-      Become a Member
-    </a>
-
+      <a class="button--glass hidden md:block text-white px-3 py-1.5 text-sm font-medium border-white/50 bg-black/20 backdrop-blur-sm">
+        Become a Member
+      </a>
+    </div>
 
   </nav>
 </header>
