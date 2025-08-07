@@ -1,3 +1,8 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro'
+const { language, langSwitch } = Astro.props;
+---
+
 <header class="absolute top-0 right-0 left-0 z-[var(--z-index-header)]">
   <nav class="container mx-auto flex flex-wrap justify-between items-center py-6">
     <!-- Logo -->
@@ -28,41 +33,13 @@
         </a>
     </ul>
 
+    <LanguageSwitcher langSwitch={langSwitch} language={language} />
+
     <!-- Button Button -->
     <a class="button--glass hidden md:block text-white px-3 py-1.5 text-sm font-medium border-white/50 bg-black/20 backdrop-blur-sm">
       Become a Member
     </a>
 
 
-
-    <style>
-      .button--glass {
-        position: relative;
-        z-index: 0;
-        border-radius: 0.25rem;
-        background: rgba(0, 0, 0, 0.20);
-        backdrop-filter: blur(2px);
-        overflow: hidden;
-      }
-
-      .button--glass::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        padding: 1px;
-        border-radius: inherit;
-        background:
-          linear-gradient(45deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0)),
-          linear-gradient(45deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-        background-blend-mode: screen;
-        -webkit-mask:
-          linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        z-index: -1;
-        box-sizing: border-box;
-      }
-    </style>
   </nav>
 </header>
