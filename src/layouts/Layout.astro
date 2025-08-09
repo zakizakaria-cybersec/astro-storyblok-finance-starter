@@ -1,8 +1,10 @@
 ---
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import * as locales from '../locales';
 
 const { title, description = "Professional finance management platform", language, langSwitch } = Astro.props;
+const translate = locales[language] || locales.en;
 ---
 
 <!DOCTYPE html>
@@ -25,7 +27,7 @@ const { title, description = "Professional finance management platform", languag
   </head>
   <body class="font-inter antialiased bg-[#F4F5F5]">
     <Header langSwitch={langSwitch} language={language} />
-    <slot />
+    <slot translate={translate} />
     <Footer />
   </body>
 </html>
