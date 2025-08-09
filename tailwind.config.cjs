@@ -9,13 +9,13 @@ module.exports = {
       },
       colors: {
         primary: '#193EAF',
-      },      
+      },
     },
 	},
-	plugins: [],
+	plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
-
-
 
 //   /* Colors */
 //   --color-primary: #042b57;
@@ -26,7 +26,7 @@ module.exports = {
 //   --color-accent-foreground: #fff;
 //   --color-card: #f4eee1;
 //   --color-card-foreground: var(--color-primary);
-  
+
 //   --color-white: #fff;
 //   --color-black: #000;
 

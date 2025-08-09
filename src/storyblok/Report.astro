@@ -9,10 +9,8 @@ const renderedRichText = renderRichText(blok.content)
 <article {...storyblokEditable(blok)}>
   <div
     class="min-h-[44vh] flex flex-col justify-center items-center text-white"
-
     style={`background: linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%) ${blok.image.filename ? `, url(${blok.image.filename}) center/cover no-repeat lightgray` : ''}`}
-
-    >
+  >
     <div class="max-w-[624px] mx-auto flex flex-col justify-center items-center pt-28 pb-14">
       <span class="block text-center opacity-65 leading-[24px] mb-3">
         {translate.report}
@@ -31,8 +29,6 @@ const renderedRichText = renderRichText(blok.content)
     </div>
   </div>
 
-  <div class="container mx-auto p-24 test">
-    <div class="prose" set:html={renderedRichText} />
-    <Fragment set:html={renderedRichText} />
-  </div>
+  <div class="mx-auto py-24 px-4 prose prose-headings:text-primary prose-headings:mt-8 prose-a:text-primary prose-a:hover:underline"
+    set:html={renderedRichText} />
 </article>
