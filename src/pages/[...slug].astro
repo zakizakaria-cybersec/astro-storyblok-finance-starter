@@ -5,13 +5,22 @@ import Layout from '../layouts/Layout.astro'
 import parseUrl from '../utils/parseUrl'
 import isPreview from '../utils/isPreview'
 import generateStaticPaths from '../utils/generateStaticPaths'
+import * as locales from '../locales'
+
 export async function getStaticPaths() {
   return await generateStaticPaths()
 }
+
 const params = Astro.params
+
 let props = isPreview() ? parseUrl(params.slug) : Astro.props
+
 const { slug, language, langSwitch } = props
+
+const translate = locales[language] || locales.en
+
 const storyblokApi = useStoryblokApi()
+
 const { data } = await storyblokApi.get(
   `cdn/stories/${slug === undefined ? 'home' : slug}`,
   {
@@ -23,6 +32,6 @@ const { data } = await storyblokApi.get(
 const story = data.story
 ---
 
-<Layout title="Finance Platform - Simplify Your Finance Management" langSwitch={langSwitch} language={language}>
-  <StoryblokComponent language={language} blok={story.content} />
+<Layout title="Finance Platform - Simplify Your Finance Management" langSwitch={langSwitch} language={language} translate={translate}>
+  <StoryblokComponent blok={story.content} language={language} translate={translate}  />
 </Layout>
