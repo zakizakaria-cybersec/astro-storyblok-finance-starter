@@ -32,6 +32,7 @@ export default defineConfig({
         testimonials_section: 'storyblok/TestimonialsSection',
         advisers_section: 'storyblok/AdvisersSection',
         banner_cta: 'storyblok/BannerCta',
+        site_settings: 'storyblok/siteSettings',
       },
     }),
     tailwind(),
