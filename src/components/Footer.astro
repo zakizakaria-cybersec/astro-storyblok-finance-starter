@@ -45,18 +45,16 @@ const { translate, siteSettings } = Astro.props;
 
       <nav>
         <ul class="space-y-6">
-          <li>
-            <a href="" class="text-xl font-medium">Membership</a>
-          </li>
-          <li>
-            <a href="" class="text-xl font-medium">Platform</a>
-          </li>
-          <li>
-            <a href="" class="text-xl font-medium">Reports</a>
-        </li>
-          <li>
-            <a href="" class="text-xl font-medium">Team</a>
-          </li>
+          {
+            siteSettings.navigation.length &&
+            siteSettings.navigation.map((navItem) => {
+              return (
+                <li>
+                  <a href={navItem.url} class="text-xl font-medium">{navItem.label}</a>
+                </li>
+              )
+            })
+          }
         </ul>
       </nav>
     </div>

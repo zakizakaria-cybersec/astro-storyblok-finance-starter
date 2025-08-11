@@ -36,6 +36,7 @@ const { data: settingsData } = await storyblokApi.get(
   `cdn/stories/settings/site-settings/`,
   {
     version: isPreview() ? 'draft' : 'published',
+    language,
   }
 )
 const siteSettings  = settingsData.story
