@@ -1,16 +1,11 @@
 ---
-import { getTransLink } from '../utils/langs'
 import Button from '../components/Button.astro'
-const { blok, language } = Astro.props
+const { blok } = Astro.props
 
 let href;
 
 if (blok.url.linktype === 'story') {
-
-  const slug = blok.url.url
-	href = getTransLink(language, slug)
-  console.log(slug)
-
+  href = blok.url.cached_url
 } else if (blok.url.linktype === 'url') {
 	href = blok.url.url;
 }

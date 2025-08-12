@@ -1,8 +1,9 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro'
 import Button from '../components/Button.astro'
+import { getTransLink } from '../utils/langs'
 
-const { blok, translate } = Astro.props
+const { blok, translate, language  } = Astro.props
 const renderedRichText = renderRichText(blok.content)
 ---
 
@@ -25,7 +26,7 @@ const renderedRichText = renderRichText(blok.content)
         <div class="font-medium">{blok.published_date}</div>
       </div>
 
-      <Button label={translate.returnReports} href="" />
+      <Button label={translate.returnReports} href={getTransLink(language, `/report`)} />
     </div>
   </div>
 

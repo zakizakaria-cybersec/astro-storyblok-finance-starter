@@ -51,7 +51,7 @@ const { language, translate, siteSettings } = Astro.props;
             siteSettings.navigation.map((navItem) => {
               return (
                 <li>
-                  <a href={getTransLink(language, `/${navItem.url.url}`)} class="text-xl font-medium">{navItem.label}</a>
+                  <a href={navItem.url.cached_url} class="text-xl font-medium">{navItem.label}</a>
                 </li>
               )
             })
@@ -65,9 +65,9 @@ const { language, translate, siteSettings } = Astro.props;
     <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="opacity-65">{translate.allRightsReserved}</p>
         <div class="flex gap-6">
-          <a href={getTransLink(language, ``)}>{translate.termsAndConditions}</a>
+          <a href={getTransLink(language, `/terms`)}>{translate.termsAndConditions}</a>
           <span class="opacity-65">•</span>
-          <a href={getTransLink(language, ``)}>{translate.privacyPolicy}</a>
+          <a href={getTransLink(language, `/policies`)}>{translate.privacyPolicy}</a>
         </div>
     </div>
   </div>

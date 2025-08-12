@@ -19,7 +19,7 @@ const { language, translate, langSwitch, siteSettings } = Astro.props;
         siteSettings.navigation.map((navItem) => {
           return (
             <li>
-              <a href={getTransLink(language, `/${navItem.url.url}`)} class="block text-white px-4 py-2 text-[0.81rem] font-medium capitalize">{navItem.label}</a>
+              <a href={navItem.url.cached_url} class="block text-white px-4 py-2 text-[0.81rem] font-medium capitalize">{navItem.label}</a>
             </li>
           )
         })
