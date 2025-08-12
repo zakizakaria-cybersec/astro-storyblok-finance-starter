@@ -1,15 +1,19 @@
 ---
+import { getTransLink } from '../utils/langs'
 import Button from '../components/Button.astro'
-const { blok } = Astro.props
+const { blok, language } = Astro.props
 
 let href;
-// if (blok.link.linktype === 'story') {
-// 	const slug = blok.url.story.full_slug;
-// 	href = currentLanguage ? `/${currentLanguage}/` : '/';
-// 	href += slug === 'home' ? '' : slug;
-// } else if (blok.url.linktype === 'url') {
-// 	href = blok.url.url;
-// }
+
+if (blok.url.linktype === 'story') {
+
+  const slug = blok.url.url
+	href = getTransLink(language, slug)
+  console.log(slug)
+
+} else if (blok.url.linktype === 'url') {
+	href = blok.url.url;
+}
 
 const label = blok.label || 'Become a Member'
 const variant = blok.style || 'primary'
