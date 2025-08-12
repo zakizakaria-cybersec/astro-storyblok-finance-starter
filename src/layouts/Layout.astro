@@ -1,5 +1,5 @@
 ---
-import "../styles/global.css";
+import "../styles/global.css"
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
@@ -24,7 +24,7 @@ const { siteSettings, language, langSwitch, translate } = Astro.props
       // posthog.init('phc_test_key', {api_host: 'https://app.posthog.com'})
     </script>
   </head>
-  <body class="font-inter antialiased bg-[#F4F5F5]">
+  <body class="font-inter antialiased bg-background text-foreground">
     <Header siteSettings={siteSettings} langSwitch={langSwitch} language={language} translate={translate} />
     <slot />
     <Footer siteSettings={siteSettings} language={language} translate={translate} />

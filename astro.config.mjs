@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config'
+import tailwindcss from '@tailwindcss/vite'
 import storyblok from '@storyblok/astro'
 import { loadEnv } from 'vite'
 import basicSsl from '@vitejs/plugin-basic-ssl'
@@ -36,7 +37,10 @@ export default defineConfig({
     }),
   ],
   vite: {
-    plugins: [basicSsl()],
+    plugins: [
+      basicSsl(),
+      tailwindcss()
+    ],
     server: {
       https: true,
     },
