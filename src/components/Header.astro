@@ -4,7 +4,7 @@ import LanguageSwitcher from './LanguageSwitcher.astro'
 const { language, translate, langSwitch, siteSettings } = Astro.props;
 ---
 
-<header class="absolute top-0 right-0 left-0 z-[var(--z-index-header)]">
+<header class="absolute top-0 right-0 left-0 border-solid border-b border-b-border">
   <nav class="container mx-auto flex flex-wrap justify-between items-center py-6">
     <div class="flex items-center gap-1">
       <a href={getTransLink(language, `/`)}>
