@@ -26,6 +26,6 @@ const { siteSettings, language, langSwitch, translate } = Astro.props
   <body class="font-inter antialiased bg-[#F4F5F5]">
     <Header siteSettings={siteSettings} langSwitch={langSwitch} language={language} translate={translate} />
     <slot />
-    <Footer siteSettings={siteSettings} translate={translate} />
+    <Footer siteSettings={siteSettings} language={language} translate={translate} />
   </body>
 </html>

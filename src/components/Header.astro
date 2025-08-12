@@ -1,26 +1,25 @@
 ---
+import { getTransLink } from '../utils/langs'
 import LanguageSwitcher from './LanguageSwitcher.astro'
 const { language, translate, langSwitch, siteSettings } = Astro.props;
 ---
 
 <header class="absolute top-0 right-0 left-0 z-[var(--z-index-header)]">
   <nav class="container mx-auto flex flex-wrap justify-between items-center py-6">
-    <!-- Logo -->
     <div class="flex items-center gap-1">
-      <span>
+      <a href={getTransLink(language, `/`)}>
         <img src={siteSettings.logo.filename} alt={siteSettings.logo.alt} />
-      </span>
+      </a>
       <!-- <div class="text-[0.81rem] font-medium capitalize text-white">Company Name</div> -->
     </div>
 
-    <!-- Navigation Links -->
     <ul class="flex items-center">
       {
         siteSettings.navigation.length &&
         siteSettings.navigation.map((navItem) => {
           return (
             <li>
-              <a href={navItem.url} class="block text-white px-4 py-2 text-[0.81rem] font-medium capitalize">{navItem.label}</a>
+              <a href={getTransLink(language, `/${navItem.url.url}`)} class="block text-white px-4 py-2 text-[0.81rem] font-medium capitalize">{navItem.label}</a>
             </li>
           )
         })
@@ -30,7 +29,7 @@ const { language, translate, langSwitch, siteSettings } = Astro.props;
     <div class="flex items-center gap-4">
       <LanguageSwitcher langSwitch={langSwitch} language={language} />
 
-      <a href="" class="button--glass hidden md:block text-white px-3 py-1.5 text-sm font-medium border-white/50 bg-black/20 backdrop-blur-sm">
+      <a href={getTransLink(language, ``)} class="button--glass hidden md:block text-white px-3 py-1.5 text-sm font-medium border-white/50 bg-black/20 backdrop-blur-sm">
         {translate.becomeMember}
       </a>
     </div>
