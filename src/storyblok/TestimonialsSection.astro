@@ -41,7 +41,7 @@ const { blok } = Astro.props
     </div>
 
     <div class="max-w-[474px]">
-      <h2 class="text-white text-5xl leading-[120%] font-adamina mb-10">{blok.headline}</h2>
+      <h2 class="text-white text-3xl md:text-5xl leading-[120%] font-adamina mb-10">{blok.headline}</h2>
       {blok.button && blok.button.length > 0 && (
         <StoryblokComponent blok={blok.button[0]} />
       )}
