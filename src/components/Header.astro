@@ -2,10 +2,11 @@
 import { getTransLink } from '../utils/langs'
 import LanguageSwitcher from './LanguageSwitcher.astro'
 const { language, translate, langSwitch, siteSettings } = Astro.props;
----
 
+
+---
 <header class="group absolute top-0 right-0 left-0 border-b border-border z-50" id="header">
-  <nav class="container mx-auto px-6 flex justify-between items-center py-6">
+  <nav class="container max-w-[1300px] mx-auto px-6 flex justify-between items-center py-6">
     <!-- Logo -->
     <div class="flex items-center gap-1 z-50">
       <a href={getTransLink(language, `/`)}>
@@ -14,7 +15,7 @@ const { language, translate, langSwitch, siteSettings } = Astro.props;
     </div>
 
     <!-- Navigation -->
-    <ul class="fixed inset-0 flex flex-col items-center justify-center gap-8 bg-primary text-white text-2xl transform transition-transform duration-300 md:static md:flex-row md:bg-transparent md:text-[0.81rem] md:font-medium md:gap-0 md:translate-x-0 translate-x-full group-[.is-open]:translate-x-0">
+    <ul class="fixed inset-0 flex flex-col items-center justify-center gap-8 bg-primary text-white text-2xl transform transition-transform duration-300 md:static md:flex-row md:bg-transparent md:text-[0.81rem] md:font-medium md:gap-0 md:translate-x-0 translate-x-full">
       {siteSettings.navigation.length &&
         siteSettings.navigation.map((navItem) => (
           <li>
@@ -50,11 +51,11 @@ const { language, translate, langSwitch, siteSettings } = Astro.props;
       <!-- Hamburger Button -->
       <button
         class="md:hidden flex flex-col justify-between w-6 h-5 z-50 relative"
-        onclick="document.getElementById('header').classList.toggle('is-open')"
+        onclick="document.getElementById('header').classList.toggle('open')"
       >
-        <span class="block h-0.5 w-full bg-white transition-transform duration-300 group-[.is-open]:translate-y-[9px] group-[.is-open]:rotate-45"></span>
-        <span class="block h-0.5 w-full bg-white transition-opacity duration-300 group-[.is-open]:opacity-0"></span>
-        <span class="block h-0.5 w-full bg-white transition-transform duration-300 group-[.is-open]:-translate-y-[9px] group-[.is-open]:-rotate-45"></span>
+        <span class="block h-0.5 w-full bg-white transition-transform duration-300"></span>
+        <span class="block h-0.5 w-full bg-white transition-opacity duration-300"></span>
+        <span class="block h-0.5 w-full bg-white transition-transform duration-300"></span>
       </button>
     </div>
   </nav>
