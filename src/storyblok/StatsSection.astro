@@ -9,14 +9,14 @@ const { blok } = Astro.props
     <p class="mb-8 text-black opacity-65">{blok.lead}</p>
   </div>
 
-  <div class="container mx-auto">
-    <ul class="grid grid-cols-2 md:grid-cols-4 gap-5">
+  <div class="container mx-auto px-6">
+    <ul class="grid grid-cols-1 md:grid-cols-4 gap-5">
       {blok.stats && blok.stats.map((stat) => (
         <li class={`p-8 ${stat.primary === true ? 'bg-primary text-white' : 'bg-white text-black'}`}>
           <span class="block text-6xl font-adamina capitalize mb-36">{stat.number}</span>
           <h3 class="opacity-65">{stat.label}</h3>
-        </li>               
-      ))}              
-    </ul>    
+        </li>
+      ))}
+    </ul>
   </div>
 </section>

@@ -10,7 +10,7 @@ const { blok } = Astro.props
   style={`background-image: ${blok.image.filename ? `url(${blok.image.filename})` : ''}`}
   >
 
-  <div class="max-w-[624px] mx-auto mb-20 flex flex-col justify-center items-center">
+  <div class="max-w-[624px] mx-auto px-6 mb-20 flex flex-col justify-center items-center">
     <h2 class="text-white text-5xl leading-[120%] text-center font-adamina mb-4">
       {blok.headline}
     </h2>
@@ -26,7 +26,7 @@ const { blok } = Astro.props
     )}
   </div>
 
-  <div class="container">
+  <div class="container mx-auto px-6">
     {blok.partners && blok.partners.length > 0 && (
       <StoryblokComponent blok={blok.partners[0]} />
     )}

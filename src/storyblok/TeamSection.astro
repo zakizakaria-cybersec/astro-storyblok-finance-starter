@@ -4,7 +4,7 @@ const { blok } = Astro.props
 ---
 
 <section {...storyblokEditable(blok)}>
-  <div class="container mx-auto">
+  <div class="container mx-auto px-6">
     {blok.title && <h2 class="text-5xl text-center font-adamina mb-16 px-6">{blok.title}</h2>}
 
     <ul class="grid md:grid-cols-2 gap-y-16 gap-x-5">
@@ -15,8 +15,8 @@ const { blok } = Astro.props
             <h3 class="text-2xl">{member.name}</h3>
             <span class="text-sm">{member.role}</span>
           </div>
-        </li>              
-      ))}              
+        </li>
+      ))}
     </ul>
   </div>
 </section>
