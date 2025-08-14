@@ -1,4 +1,5 @@
-import { languages } from './langs'
+import { getLanguages } from './i18n'
+const languages = await getLanguages()
 
 export default function parseUrl(url) {
   //converting the current url to an array based on '/'

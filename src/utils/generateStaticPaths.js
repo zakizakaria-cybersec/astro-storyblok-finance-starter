@@ -1,6 +1,7 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import isPreview from './isPreview'
-import { languages } from './langs'
+import { getLanguages } from './i18n'
+const languages = await getLanguages()
 
 export default async function generateStaticPaths() {
   const storyblokApi = useStoryblokApi()
