@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@view-transition {
+  navigation: auto;
+}
+
 :root {
   /* --outer-container-width: 780px; */
 }
