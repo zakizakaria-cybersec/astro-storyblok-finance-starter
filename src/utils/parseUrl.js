@@ -1,15 +1,14 @@
 import { getLanguages } from './i18n'
 const languages = await getLanguages()
+const DEFAULT_LANG = import.meta.env.DEFAULT_LANG
 
 export default function parseUrl(url) {
   //converting the current url to an array based on '/'
   let urlToArray = url?.split('/')
-  //Setting the fallback language to be english
-  let defaultLang = 'en'
   //Checking if current url contains a known language
   let isKnownLang = languages.some((l) => l === urlToArray?.[0])
   //setting current language based on above
-  let currentLang = url && isKnownLang ? urlToArray[0] : defaultLang
+  let currentLang = url && isKnownLang ? urlToArray[0] : DEFAULT_LANG
   // removing language from the url and only keeping the slug
   let slug = url
     ? isKnownLang
@@ -22,7 +21,7 @@ export default function parseUrl(url) {
   languages.forEach((lang) => {
     langSwitch = {
       ...langSwitch,
-      [lang]: lang === 'en' ? `/${slug ?? ''}` : `/${lang}/${slug ?? ''}`,
+      [lang]: lang === DEFAULT_LANG ? `/${slug ?? ''}` : `/${lang}/${slug ?? ''}`,
     }
   })
   //finally returning the same three variables we also get from getStaticPaths

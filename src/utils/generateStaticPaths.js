@@ -1,6 +1,7 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import isPreview from './isPreview'
 import { getLanguages } from './i18n'
+const DEFAULT_LANG = import.meta.env.DEFAULT_LANG
 const languages = await getLanguages()
 
 export default async function generateStaticPaths() {
@@ -16,13 +17,13 @@ export default async function generateStaticPaths() {
         //This slug will be used for fetching data from storyblok
         let slug = link.slug === 'home' ? undefined : link.slug
         //This will be used for generating all the urls for astro
-        let full_url = language === 'en' ? slug : `${language}/${slug ?? ''}`
+        let full_url = language === DEFAULT_LANG ? slug : `${language}/${slug ?? ''}`
         //This will let us change the url for diffrent versions
         let langSwitch = {}
         languages.forEach((lang) => {
           langSwitch = {
             ...langSwitch,
-            [lang]: lang === 'en' ? `/${slug ?? ''}` : `/${lang}/${slug ?? ''}`,
+            [lang]: lang === DEFAULT_LANG ? `/${slug ?? ''}` : `/${lang}/${slug ?? ''}`,
           }
         })
         paths.push({

@@ -1,28 +1,28 @@
 ---
-import { languages1, getTransLink, getLanguageLabel } from '../utils/i18n'
+import { getLanguages, getLanguageLabel, getLanguageFlag } from '../utils/i18n'
+const languages = await getLanguages()
 const { language, langSwitch } = Astro.props
 ---
 
 <div class="relative inline-block">
   <button id="dropdowntoggle" type="button" class="inline-flex items-center p-1.5 gap-0.5 rounded-sm select-none cursor-pointer" id="menu-button" aria-expanded="true" aria-haspopup="true">
-    <img class="rounded-full" src=`/assets/flags/${language}.svg` alt="">
+    <svg class="rounded-full" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" set:html={getLanguageFlag(language)} />
     <svg class="-scale-100" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M4 10L8 6L12 10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
   <div id="dropdown" class="hidden absolute left-0 w-[160px] -translate-x-1/2 ml-[50%] mt-2 rounded-lg bg-white" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
     <ul class="flex flex-col p-2 gap-y-1.5" role="none">
-      {Object.keys(languages1)
-        .map((locale) => (
+      {languages.map((lang) => (
           <li>
             <a
-              href={langSwitch[locale]}
+              href={langSwitch[lang]}
               class="flex items-center gap-1 rounded-sm p-1 text-xs capitalize"
               role="menuitem"
               tabindex="-1"
             >
-              <img class="rounded-full" src={`/assets/flags/${locale}.svg`} alt="" />
-              {getLanguageLabel(locale)}
+              <svg class="rounded-full" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" set:html={getLanguageFlag(lang)} />
+              {getLanguageLabel(lang)}
             </a>
           </li>
         ))}
