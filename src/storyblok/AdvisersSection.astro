@@ -1,5 +1,6 @@
 ---
 import { storyblokEditable } from '@storyblok/astro'
+import { Image } from 'astro:assets'
 const { blok } = Astro.props
 ---
 
@@ -11,7 +12,14 @@ const { blok } = Astro.props
       {blok.advisers && blok.advisers.map((adviser) => (
         <li class="flex items-center flex-wrap justify-center sm:justify-between p-10 gap-5 bg-white text-black">
           <div class="flex flex-col sm:flex-row items-center gap-4">
-            <img src={adviser.image.filename} alt={adviser.image.alt} class="w-[64px] h-[64px] rounded-full object-cover" />
+            <Image
+              class="w-[64px] h-[64px] rounded-full object-cover"
+              src={`${adviser.image.filename}/m/128x0`}
+              alt={adviser.image.alt}
+              width={64}
+              height={64}
+              loading="lazy"
+            />
             <div>
               <h3 class="mb-2 text-[1.5rem] md:text-[1.75rem] text-center sm:text-left">{adviser.name}</h3>
               <p class="opacity-65 text-center sm:text-left">{adviser.role}</p>

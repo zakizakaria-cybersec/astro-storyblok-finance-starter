@@ -1,5 +1,6 @@
 ---
 import { storyblokEditable } from '@storyblok/astro'
+import { Image } from 'astro:assets'
 const { blok } = Astro.props
 ---
 
@@ -11,7 +12,14 @@ const { blok } = Astro.props
       {blok.features && blok.features.map((feature) => (
         <li class="bg-white">
           <h3 class="p-6 text-black text-xl font-adamina capitalize">{feature.title}</h3>
-          <img class="block w-full" src={feature.image.filename} alt={feature.image.alt} />
+          <Image
+            class="block w-full"
+            src={`${feature.image.filename}/m/480x333`}
+            alt={feature.image.alt}
+            width={480}
+            height={333}
+            loading="lazy"
+          />
           <p class="p-6 text-black opacity-65">{feature.description}</p>
         </li>
       ))}
