@@ -1,5 +1,6 @@
 ---
 import { getTransLink } from '../utils/i18n'
+import { getHref } from '../utils/getHref'
 const { language, translate, siteSettings } = Astro.props;
 ---
 
@@ -51,7 +52,7 @@ const { language, translate, siteSettings } = Astro.props;
             siteSettings.navigation.map((navItem) => {
               return (
                 <li>
-                  <a href={navItem.url.cached_url} class="text-xl font-medium">{navItem.label}</a>
+                  <a href={getHref(navItem.url)} class="text-xl font-medium">{navItem.label}</a>
                 </li>
               )
             })
