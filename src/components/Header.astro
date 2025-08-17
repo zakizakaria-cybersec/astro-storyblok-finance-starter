@@ -1,5 +1,6 @@
 ---
 import { getTransLink } from '../utils/i18n'
+import { getHref } from '../utils/getHref'
 import LanguageSwitcher from './LanguageSwitcher.astro'
 const { language, translate, langSwitch, siteSettings } = Astro.props;
 ---
@@ -19,7 +20,7 @@ const { language, translate, langSwitch, siteSettings } = Astro.props;
         siteSettings.navigation.map((navItem) => (
           <li>
             <a
-              href={navItem.url.cached_url}
+              href={getHref(navItem.url)}
               class="block px-4 py-2 md:px-4 md:py-2 capitalize hover:opacity-80"
             >
               {navItem.label}

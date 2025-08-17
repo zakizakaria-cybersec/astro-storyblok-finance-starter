@@ -1,17 +1,10 @@
 ---
 import Button from '../components/Button.astro'
+import { getHref } from '../utils/getHref'
 const { blok } = Astro.props
-
-let href;
-
-if (blok.url.linktype === 'story') {
-  href = blok.url.cached_url
-} else if (blok.url.linktype === 'url') {
-	href = blok.url.url;
-}
 
 const label = blok.label || 'Become a Member'
 const variant = blok.style || 'primary'
 ---
 
-<Button label={label} href={href} variant={variant} />
+<Button label={label} href={getHref(blok.url)} variant={variant} />
