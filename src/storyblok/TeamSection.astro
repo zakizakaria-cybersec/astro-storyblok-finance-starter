@@ -12,11 +12,11 @@ const { blok } = Astro.props
       {blok.members && blok.members.map((member) => (
         <li class="relative group">
           <Image
-            class="block w-full"
             src={`${member.image.filename}/m/1226x0`}
             alt={member.image.alt}
             width={563}
             height={329}
+            layout="full-width"
             loading="lazy"
           />
           <div class="flex items-center justify-between gap-2 mt-4 text-black">

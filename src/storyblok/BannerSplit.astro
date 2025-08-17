@@ -1,6 +1,7 @@
 ---
 import { storyblokEditable } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import { Image } from 'astro:assets'
 const { blok } = Astro.props
 ---
 
@@ -24,7 +25,14 @@ const { blok } = Astro.props
         )}
       </div>
       <div>
-        <img width="100%" height="auto" src={blok.image.filename} alt={blok.image.alt}>
+        <Image
+          src={`${blok.image.filename}/m/1296x0`}
+          alt={blok.image.alt}
+          width={648}
+          height={777}
+          layout="full-width"
+          loading="lazy"
+        />
       </div>
     </div>
   </div>

@@ -13,11 +13,11 @@ const { blok } = Astro.props
         <li class="bg-white">
           <h3 class="p-6 text-black text-xl font-adamina capitalize">{feature.title}</h3>
           <Image
-            class="block w-full"
             src={`${feature.image.filename}/m/480x333`}
             alt={feature.image.alt}
             width={480}
             height={333}
+            layout="full-width"
             loading="lazy"
           />
           <p class="p-6 text-black opacity-65">{feature.description}</p>

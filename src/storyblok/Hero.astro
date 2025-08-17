@@ -7,7 +7,7 @@ const { blok } = Astro.props
 <section
   {...storyblokEditable(blok)}
   class="min-h-[75vh] flex flex-col justify-end items-center pt-40 bg-no-repeat bg-cover bg-top"
-  style={`background-image: ${blok.image.filename ? `url(${blok.image.filename})` : ''}`}
+  style={`background-image: ${blok.image.filename ? `url(${blok.image.filename}/m/2560x0/filters:quality(80))` : ''}`}
   >
 
   <div class="max-w-[624px] mx-auto px-6 mb-10 md:mb-20 flex flex-col justify-center items-center">

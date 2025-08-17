@@ -6,11 +6,12 @@ const { language, report } = Astro.props
 
 <article class="relative group">
   <Image
-    class="object-cover object-center w-full"
+    class="object-cover object-center"
     src={`${report.image.filename}/m/960x0`}
     alt={report.image.alt}
     width={480}
     height={480}
+    layout="full-width"
     loading="lazy"
   />
   <h3 class="mt-6 text-white text-xl">
