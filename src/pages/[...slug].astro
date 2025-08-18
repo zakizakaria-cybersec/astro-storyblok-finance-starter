@@ -43,6 +43,6 @@ const siteSettings  = settingsData.story
 
 ---
 
-<Layout siteSettings={siteSettings.content} langSwitch={langSwitch} language={language} translate={translate}>
+<Layout blok={story.content} siteSettings={siteSettings.content} langSwitch={langSwitch} language={language} translate={translate}>
   <StoryblokComponent blok={story.content} language={language} translate={translate}  />
 </Layout>
