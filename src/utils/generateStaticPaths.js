@@ -11,7 +11,7 @@ export default async function generateStaticPaths() {
   })
   let paths = []
   links
-    .filter((link) => !link.is_folder)
+    .filter((link) => !link.is_folder && link.slug !== 'settings/site-settings')
     .forEach((link) => {
       languages.forEach((language) => {
         //This slug will be used for fetching data from storyblok
