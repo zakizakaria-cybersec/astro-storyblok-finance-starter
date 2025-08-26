@@ -31,7 +31,6 @@ exports.handler = async (event, context) => {
     'Content-Type': 'application/json'
   };
 
-  // The URL is updated to match the documentation.
   const url = `https://api.storyblok.com/v1/spaces/`;
 
   try {
