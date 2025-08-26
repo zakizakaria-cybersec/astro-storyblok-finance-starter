@@ -1,5 +1,3 @@
-// functions/clone-storyblok-space.js
-
 const axios = require('axios');
 
 exports.handler = async (event, context) => {
@@ -21,7 +19,6 @@ exports.handler = async (event, context) => {
 
   const newSpaceName = `Global Finance Starter - ${new Date().toISOString().slice(0, 16)}`;
 
-  // The request body is updated to match the documentation.
   const requestBody = {
     dup_id: STORYBLOK_SPACE_ID,
     space: {
