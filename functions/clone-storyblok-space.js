@@ -1,3 +1,5 @@
+// functions/clone-storyblok-space.js
+
 const axios = require('axios');
 
 exports.handler = async (event, context) => {
@@ -19,7 +21,9 @@ exports.handler = async (event, context) => {
 
   const newSpaceName = `Global Finance Starter - ${new Date().toISOString().slice(0, 16)}`;
 
+  // The request body is updated to match the documentation.
   const requestBody = {
+    dup_id: STORYBLOK_SPACE_ID,
     space: {
       name: newSpaceName
     }
@@ -30,7 +34,8 @@ exports.handler = async (event, context) => {
     'Content-Type': 'application/json'
   };
 
-  const url = `https://api.storyblok.com/v1/spaces/${STORYBLOK_SPACE_ID}/duplicate`;
+  // The URL is updated to match the documentation.
+  const url = `https://api.storyblok.com/v1/spaces/`;
 
   try {
     const response = await axios.post(url, requestBody, { headers });
