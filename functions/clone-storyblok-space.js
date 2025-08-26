@@ -36,7 +36,7 @@ exports.handler = async (event, context) => {
   try {
     const response = await axios.post(url, requestBody, { headers });
     const newSpace = response.data.space;
-    const newSpaceUrl = `https://app.storyblok.com/#/spaces/${newSpace.id}/content/`;
+    const newSpaceUrl = `https://app.storyblok.com/#/me/spaces/${newSpace.id}/dashboard/`;
 
     return {
       statusCode: 302,
