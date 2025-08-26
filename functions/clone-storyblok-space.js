@@ -1,10 +1,11 @@
+// functions/clone-storyblok-space.js
 const axios = require('axios');
 
 exports.handler = async (event, context) => {
 
   const STORYBLOK_MANAGEMENT_TOKEN = process.env.STORYBLOK_MANAGEMENT_TOKEN;
   const STORYBLOK_SPACE_ID = process.env.STORYBLOK_SPACE_ID;
-  const newSpaceName = `Global Finance Starter - ${new Date().toISOString().slice(0, 10)}`;
+  const newSpaceName = `Global Finance Starter - ${new Date().toISOString().slice(0, 16)}`;
 
   const requestBody = {
     space: {
@@ -21,17 +22,15 @@ exports.handler = async (event, context) => {
 
   try {
     const response = await axios.post(url, requestBody, { headers });
-
     const newSpace = response.data.space;
+    const newSpaceUrl = `https://app.storyblok.com/#/spaces/${newSpace.id}/content/`;
 
     return {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: 'Storyblok space successfully cloned!',
-        newSpaceId: newSpace.id,
-        newSpaceName: newSpace.name,
-        previewUrl: `https://app.storyblok.com/#/spaces/${newSpace.id}/content/`,
-      })
+      statusCode: 302,
+      headers: {
+        'Location': newSpaceUrl
+      },
+      body: ''
     };
 
   } catch (error) {
@@ -39,10 +38,7 @@ exports.handler = async (event, context) => {
 
     return {
       statusCode: error.response ? error.response.status : 500,
-      body: JSON.stringify({
-        message: 'Failed to clone Storyblok space.',
-        error: error.response ? error.response.data : 'Internal Server Error'
-      })
+      body: 'Failed to clone Storyblok space. Please check the logs or try again later.'
     };
   }
 };
