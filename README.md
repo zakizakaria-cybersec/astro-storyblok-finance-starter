@@ -74,3 +74,9 @@ bun run preview
 
 ## Contributing
 Contributions are welcome!
+
+## 📸 Screenshots
+![Financial Template Preview](https://a.storyblok.com/f/286134095425736/3840x2160/0da3abc8e2/2.png)
+![Financial Template Preview](https://a.storyblok.com/f/286134095425736/3840x2160/70e9404911/4.png)
+![Financial Template Preview](https://a.storyblok.com/f/286134095425736/3840x2160/9913515548/5.png)
+![Financial Template Preview](https://a.storyblok.com/f/286134095425736/3840x2160/fb5d16913e/3.png)
