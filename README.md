@@ -7,9 +7,9 @@ A high-performance website starter template built for financial teams to launch 
 This template is powered by a modern, headless stack: Astro, Storyblok, Netlify, and PostHog. Together, they provide a flexible, scalable solution with intuitive content management and powerful marketing features like A/B testing.
 
 ## Demo
-- 💻 [Live Demo](https://astro-storyblok-template.netlify.app/)
+- ✨ [Live Demo](https://astro-storyblok-template.netlify.app/)
 - 💨 [PageSpeed Insights Report](https://pagespeed.web.dev/analysis/https-astro-storyblok-template-netlify-app/04ge88qxbi?form_factor=desktop)
-- 🎥 [Watch Demo on YouTube](https://www.youtube.com/watch?v=2hPhwubis7Q)
+- 🍿 [Watch Demo on YouTube](https://www.youtube.com/watch?v=2hPhwubis7Q)
 
 ## Tech Stack
 - Astro
@@ -54,10 +54,10 @@ cp .env.example .env
 
 ### Environment Variables
 ```bash
-STORYBLOK_TOKEN=   # Storyblok API token (Project Settings > API Tokens > Preview)
-POSTHOG_TOKEN=     # PostHog API key (Project Settings > Project API keys)
-IS_PREVIEW=        # true for preview mode, false for production
-DEFAULT_LANG=en    # Default site language
+STORYBLOK_TOKEN=   # Storyblok API token (Project Settings > Access token)
+POSTHOG_TOKEN=     # PostHog API key (Project Settings > Project ID)
+IS_PREVIEW=        # "yes" for preview mode
+DEFAULT_LANG=    # Default site language code, like en or es
 ```
 
 ## Available Scripts
