@@ -1,6 +1,6 @@
 # Financial Starter: Multilingual Website Template
 
-![Financial Template Preview](https://a.storyblok.com/f/286134095425736/1440x1072/f40bf47ee3/template-thumbnail.png)
+![Financial Template Preview](https://a.storyblok.com/f/286134095425736/1920x1080/8a2b82127e/template-image.png)
 
 A high-performance website starter template built for financial teams to launch new brands, products, or campaigns quickly and efficiently.
 
