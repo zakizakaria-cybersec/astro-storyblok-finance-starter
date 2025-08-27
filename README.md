@@ -35,7 +35,7 @@ This template is powered by a modern, headless stack: Astro, Storyblok, Netlify,
 4. Deploy on Netlify
 5. Let Storyblok set up your project:
 
-[![Clone Storyblok Space](https://a.storyblok.com/f/286134095425736/867x146/a357885bea/clone-button.png)](https://astro-storyblok-template.netlify.app/.netlify/functions/clone-storyblok-space)
+[![Clone Storyblok Space](https://a.storyblok.com/f/286134095425736/867x146/a357885bea/clone-button.png/m/208x0)](https://astro-storyblok-template.netlify.app/.netlify/functions/clone-storyblok-space)
 
 ## Local Setup
 
