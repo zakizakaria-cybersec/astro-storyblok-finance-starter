@@ -36,7 +36,7 @@ This template is powered by a modern, headless stack: Astro, Storyblok, Netlify,
 5. Set up environment variables (see below)
 6. Deploy!
 
-[![Clone Storyblok Space](https://a.storyblok.com/f/286134095425736/867x146/a357885bea/clone-button.png/m/208x0)](https://astro-storyblok-template.netlify.app/.netlify/functions/clone-storyblok-space)
+[![Clone Storyblok Space](https://a.storyblok.com/f/286134095425736/867x146/a357885bea/clone-button.png/m/208x0)](https://astro-storyblok-finance-starter.netlify.app/.netlify/functions/clone-storyblok-space)
 
 ## Local Setup
 
