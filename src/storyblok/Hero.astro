@@ -8,17 +8,25 @@ const { blok } = Astro.props
 <section {...storyblokEditable(blok)} class="group" data-posthog>
 
   <div class="relative min-h-[82vh] flex items-end pt-40 before:absolute before:inset-0 before:bg-black/55 before:mix-blend-multiply before:z-10">
-
-    <Image
-      class="absolute z-0 w-full h-full object-cover object-top"
-      src={blok.image.filename}
-      alt={blok.image.alt}
-      layout="full-width"
-      width={1440}
-      height={685}
-      widths={[640, 1024, 1440]}
-      loading="lazy"
-    />
+    <picture class="absolute z-0 w-full h-full object-cover object-top">
+      <source
+        srcset={`${blok.image.filename}/m/640x685/`}
+        media="(max-width: 640px)"
+      />
+      <source
+        srcset={`${blok.image.filename}/m/1024x685/`}
+        media="(max-width: 1024px)"
+      />
+      <source
+        srcset={`${blok.image.filename}/m/1440x685/`}
+        media="(max-width: 1440px)"
+      />
+      <img
+        src={`${blok.image.filename}/m/1440x685/`}
+        alt={blok.image.alt}
+        class="absolute z-0 w-full h-full object-cover object-top"
+      />
+    </picture>
 
     <div class="relative z-20 w-full pt-10">
       <div class="max-w-[624px] mx-auto mb-28 px-6 flex flex-col gap-y-8 justify-center items-center">
