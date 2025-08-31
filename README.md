@@ -30,10 +30,11 @@ This template is powered by a modern, headless stack: Astro, Storyblok, Netlify,
 
 ## Quick Start
 1. Create a Storyblok account
-2. Clone this repo & install dependencies
-3. Set up environment variables (see below)
-4. Deploy on Netlify
-5. Let Storyblok set up your project:
+2. Fork this repo
+3. Clone Storyblok Space (using the button below)
+4. Create your project on Netlify
+5. Set up environment variables (see below)
+6. Deploy!
 
 [![Clone Storyblok Space](https://a.storyblok.com/f/286134095425736/867x146/a357885bea/clone-button.png/m/208x0)](https://astro-storyblok-template.netlify.app/.netlify/functions/clone-storyblok-space)
 
@@ -55,9 +56,9 @@ cp .env.example .env
 ### Environment Variables
 ```bash
 STORYBLOK_TOKEN=   # Storyblok API token (Project Settings > Access token)
-POSTHOG_TOKEN=     # PostHog API key (Project Settings > Project ID)
 IS_PREVIEW=        # "yes" for preview mode
 DEFAULT_LANG=    # Default site language code, like en or es
+POSTHOG_TOKEN=     # PostHog API key (Project Settings > Project ID)
 ```
 
 ## Available Scripts
