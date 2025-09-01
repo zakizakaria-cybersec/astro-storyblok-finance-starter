@@ -1,14 +1,24 @@
 ---
 import { storyblokEditable } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-import { Image } from 'astro:assets'
 const { blok } = Astro.props
 ---
 
 <section {...storyblokEditable(blok)} class="group" data-posthog>
 
-  <div class="relative min-h-[82vh] flex items-end pt-40 before:absolute before:inset-0 before:bg-black/55 before:mix-blend-multiply before:z-10">
-    <picture class="absolute z-0 w-full h-full object-cover object-top">
+  <div class="relative min-h-[82vh] flex items-end pt-40 before:absolute before:inset-0 before:bg-black/55 before:mix-blend-multiply before:z-10 overflow-clip">
+    <img
+      src={`${blok.image.filename}/m/100x0/filters:quality(0)`}
+      alt={blok.image.alt}
+      class="absolute z-0 w-full h-full object-cover object-top blur-lg"
+    />
+
+    <picture
+      id="hero-full"
+      class="absolute z-0 w-full h-full object-cover object-top opacity-0 transition-opacity duration-500"
+      fetchpriority="high"
+      >
+
       <source
         srcset={`${blok.image.filename}/m/640x685/`}
         media="(max-width: 640px)"
@@ -57,3 +67,10 @@ const { blok } = Astro.props
   </div>
 
 </section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fullImg = document.getElementById('hero-full');
+    fullImg.classList.add('opacity-100');
+  })
+</script>
