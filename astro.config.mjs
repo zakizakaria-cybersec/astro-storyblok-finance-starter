@@ -15,7 +15,6 @@ if (env.STORYBLOK_IS_PREVIEW === 'yes') {
   is_preview = true
   output = 'server'
   adapter = netlify()
-  adapter = undefined
 }
 
 export default defineConfig({
