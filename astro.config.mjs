@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
-import storyblok from '@storyblok/astro'
+import { storyblok } from '@storyblok/astro'
 import { loadEnv } from 'vite'
 import mkcert from 'vite-plugin-mkcert'
 import netlify from '@astrojs/netlify'
@@ -15,6 +15,7 @@ if (env.STORYBLOK_IS_PREVIEW === 'yes') {
   is_preview = true
   output = 'server'
   adapter = netlify()
+  adapter = undefined
 }
 
 export default defineConfig({
@@ -24,7 +25,10 @@ export default defineConfig({
   integrations: [
     storyblok({
       accessToken: env.STORYBLOK_TOKEN,
-      bridge: is_preview,
+      bridge: {
+        resolveRelations: ['reports_section.reports'],
+      },
+      enableFallbackComponent: true,
       livePreview: is_preview,
       apiOptions: {
         region: 'eu',
