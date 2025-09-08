@@ -10,6 +10,8 @@ This template is powered by a modern, headless stack: Astro, Storyblok, Netlify,
 - ✨ [Live Demo](https://astro-storyblok-finance-starter.netlify.app/)
 - 💨 [PageSpeed Insights Report](https://pagespeed.web.dev/analysis/https-astro-storyblok-template-netlify-app/04ge88qxbi?form_factor=desktop)
 - 🍿 [Watch Demo on YouTube](https://www.youtube.com/watch?v=2hPhwubis7Q)
+- 🆎 [A/B testing with PostHog](https://posthog-finance-starter.netlify.app/)
+  - [Check out its branch](https://github.com/bejamas/astro-storyblok-finance-starter/tree/with-posthog-ab-testing)
 
 ## Tech Stack
 - Astro
