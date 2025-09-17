@@ -31,7 +31,7 @@ This template is powered by a modern, headless stack: Astro, Storyblok, Netlify,
 
 
 ## Quick Start
-1. Create a Storyblok account and Space
+1. Create a Storyblok account and a new Space
 2. Fork this repo
 3. Clone Storyblok Space (using the button below)
 4. Create your project on Netlify
