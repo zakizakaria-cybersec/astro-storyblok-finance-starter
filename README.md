@@ -31,14 +31,14 @@ This template is powered by a modern, headless stack: Astro, Storyblok, Netlify,
 
 
 ## Quick Start
-1. Create a Storyblok account
+1. Create a Storyblok account and Space
 2. Fork this repo
 3. Clone Storyblok Space (using the button below)
 4. Create your project on Netlify
 5. Set up environment variables (see below)
 6. Deploy!
 
-[![Clone Storyblok Space](https://a.storyblok.com/f/286134095425736/208x35/7a54d39bad/clone-button.svg)](https://astro-storyblok-finance-starter.netlify.app/.netlify/functions/clone-storyblok-space)
+[![Clone Storyblok Space](https://a.storyblok.com/f/286134095425736/208x35/7a54d39bad/clone-button.svg)](https://storyblok-space-cloner.netlify.app/)
 
 ## Local Setup
 
