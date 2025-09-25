@@ -59,6 +59,7 @@ cp .env.example .env
 ```bash
 STORYBLOK_TOKEN=        # Storyblok API token (Project Settings > Access token)
 STORYBLOK_IS_PREVIEW=   # "yes" for preview mode
+STORYBLOK_ENVIRONMENT=  # set to development on your local machine
 STORYBLOK_DEFAULT_LANG= # Default site language code, like en or es
 PUBLIC_POSTHOG_TOKEN=          # PostHog API key (Project Settings > Project ID)
 ```
