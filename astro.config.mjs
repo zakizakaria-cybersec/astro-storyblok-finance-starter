@@ -11,7 +11,7 @@ let is_preview
 let output = 'static'
 let adapter = undefined
 
-if (env.STORYBLOK_IS_PREVIEW === 'yes') {
+if (import.meta.env.DEV === true && env.STORYBLOK_IS_PREVIEW === 'yes') {
   is_preview = true
   output = 'server'
   adapter = netlify()
