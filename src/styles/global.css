@@ -57,6 +57,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body:has(header#header.is-open){
+  overflow: hidden;
+}
+
 @media screen and (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
