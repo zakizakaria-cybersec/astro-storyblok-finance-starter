@@ -57,10 +57,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body:has(header#header.is-open){
-  overflow: hidden;
-}
-
 @media screen and (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -77,6 +73,10 @@ body:has(header#header.is-open){
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+body:has(#header.is-open){
+  overflow: hidden;
 }
 
 header {
